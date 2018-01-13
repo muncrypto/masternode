@@ -45,7 +45,7 @@ mn1 YOUR_VPS_IP:12548 YOURPRIVKEY TX_OUTPUT TX_ID
 ```
 For example:
 ```
-mn1 45.76.250.89:22548 92TPhvQjKd5vMiBcwbRpq3g4CnPVGUAZGrorZJPNJoohgCu9QkF a9b31238d062ccb5f4b1eb6c3041d369cc014f5e6df28d2d303d791acd4302f2 0
+mn1 45.76.250.89:12548 92TPhvQjKd5vMiBcwbRpq3g4CnPVGUAZGrorZJPNJoohgCu9QkF a9b31238d062ccb5f4b1eb6c3041d369cc014f5e6df28d2d303d791acd4302f2 0
 ```
 8. Restart the wallet and go to the “Masternodes” tab. There in the tab “My Masternodes” you should see the entry of
 your masternode with the status “MISSING”.
@@ -429,7 +429,7 @@ sudo apt-get update
 Install python virtualenv, which is a way of preserving and restoring python environment in a separate folder including
 all binaries and packages:
 ```
-sudo apt-get -y install python-virtualenv
+sudo apt-get -y install virtualenv
 ```
 Create a python virtual environment folder under the sentinel folder:
 ```
