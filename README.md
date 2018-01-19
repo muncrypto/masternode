@@ -13,13 +13,14 @@ What you will need
 Automated masternode installation
 ---------------------------------
 If you have a VPS already setup you can use this script to install the binaries and pre-configure the config files.
+Installs under the root.
 ```
 wget https://github.com/muncrypto/masternode/raw/master/install.sh
 chmod +x install.sh
 ./install.sh
 ```
-You can use the generated masternode key and update ~/.muncore/mun.conf and ~/.muncore/masternode.conf in accordance
-with the rest of masternode setup guide described below.
+After script execution you will need to check the file ~/.muncore/mun.conf to make sure your MN privkey matches the
+generated one and edit the file ~/.muncore/masternode.conf in accordance with the rest of masternode setup guide described below.
 
 Creating MN keys for a VPS instance in your local qt wallet
 ---------------------------------------------------------
@@ -208,6 +209,7 @@ step):
 ```
 rpcuser=YOUR_USER_NAME
 rpcpassword=YOUR_PASSWORD
+rpcport=12547
 rpcallowip=127.0.0.1
 listen=1
 server=1
@@ -416,9 +418,10 @@ python --version
 The output should be 2.7.x, for example: Python 2.7.12
 Clone sentinel script in a new directory under your home directory and switch to it:
 ```
+cd ~/mun
 git clone https://github.com/muncrypto/sentinel.git
 ```
-Swtith to sentinel directory:
+Switch to sentinel directory:
 ```
 cd sentinel
 ```
@@ -443,7 +446,7 @@ Edit the location of your mun.conf file only if it is not at the default locatio
 option, then change it for both the main script as well as for the test script:
 In file sentinel.conf uncomment and modify line:
 ```
-mun_conf=/home/YOURUSERNAME/YOURDATAPATH/mun.conf
+mun_conf=/home/YOURUSERNAME/.muncore/mun.conf
 ```
 In file test/test_sentinel.conf insert the same line to specify the path to mun.conf.
 Test the sentinel configuration by executing the test script:
@@ -467,10 +470,10 @@ test/unit/test_submit_command.py .
 
 ======================== 14 passed in 0.16 seconds =============================
 ```
-Add the sentinel to your periodic task scheduler so that it runs every 5 minutes a command to get into your sentinel
+Add the sentinel to your periodic task scheduler so that it runs every minute a command to get into your sentinel
 directory and run a python script without reporting any errors:
 ```
-*/5 * * * * cd /home/YOURUSERNAME/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1
+* * * * * cd /home/YOURUSERNAME/mun/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1
 ```
 
 To view debug output set the sentinel environment variable to anything non-zero then run the script:
