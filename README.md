@@ -181,8 +181,8 @@ cd mun
 ```
 Download and extract linux binaries:
 ```
-wget https://github.com/muncrypto/muncoin/releases/download/0.1.0.1/muncoin_0.1.0.1_ubuntu_16.04.tar.gz
-tar -xvf muncoin_0.1.0.1_ubuntu_16.04.tar.gz
+wget https://github.com/muncrypto/muncoin/releases/download/v0.1.0.2/muncoin_0.1.0.2_ubuntu_16.04.tar.gz
+tar -xvf muncoin_0.1.0.2_ubuntu_16.04.tar.gz
 ```
 
 You should have now the daemon mund and wallet mun-cli files in /home/YOURUSERNAME/mun directory. Start the daemon:
